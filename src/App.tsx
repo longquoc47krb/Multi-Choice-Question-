@@ -5,14 +5,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { authorizedRoutes, unauthorizedRoute } from "./configs/routes";
 import PublicRoute from "./components/PublicRoute";
 import PrivateRoutes from "./components/PrivateRoute";
-
+import { useSelector } from "react-redux";
 interface RouteProps {
   path: string;
   element: React.ReactNode;
 }
 function App() {
   const [count, setCount] = useState(0);
-
+  const token = useSelector((state) => state.account.token);
   return (
     <BrowserRouter>
       <Routes>
